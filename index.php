@@ -34,9 +34,11 @@ include("database.php");
                     <p class="lead">
                     <?php
                     $res=$db->select("user",'','test_correct_rate DESC',10);
-                    $a=count($res);
-                    for($i=0;$i<$a;$i++){
-                        echo $res[$i]["id"]." ： ".($res[$i]["test_correct_rate"]*100)."% </br>";
+                    if($res[0]["id"]!=NULL){
+                        $a=count($res);
+                        for($i=0;$i<$a;$i++){
+                            echo $res[$i]["id"]." ： ".($res[$i]["test_correct_rate"]*100)."% </br>";
+                        }
                     }
                     ?>
                     </p>
